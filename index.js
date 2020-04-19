@@ -9,7 +9,9 @@ var app = express(),
     require("./routes/prod")(app);
     require("dotenv").config();
 const mongoose= require("mongoose");
-      mongoose.connect("mongodb://localhost/policify", {useNewUrlParser: true, useUnifiedTopology:true});
+const mongoUtil = require( './models/DB' );
+mongoUtil.connectToServer();
+//mongoose.connect("mongodb://localhost/policify", {useNewUrlParser: true, useUnifiedTopology:true});
 
 app.set("view engine", "ejs");
 mongoose.set('debug', true);
@@ -74,6 +76,6 @@ app.use('/',  registerRoutes);
 app.use('/',  signalRoutes);
 
 
-app.listen( '3000', function(){
-	console.log("The server has started on port 3000");
+app.listen(process.env.PORT || "3000", function(){
+	console.log("The server has started on port"+ process.env.PORT);
 });
