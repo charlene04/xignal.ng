@@ -9,7 +9,7 @@ body, html{
     font-family: 'Rajdhani', sans-serif;
 }
 div.banner{
-    background-image: url("https://res.cloudinary.com/charlene04/image/upload/v1587280211/XIGNAL.NG/icon2_mvaoux.jpg");
+    background-image: url(icon2.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -22,7 +22,7 @@ div.banner span{
     align-items: center;
     width: 100%;
     min-height: 100vh;
-    background-color: #13131342;
+    background-color: #1313137d;
 }
 .ui.button{font-family: 'Rajdhani', sans-serif;}
 div.banner section{
@@ -34,7 +34,7 @@ div.banner section{
 header.banner-text h1{
     letter-spacing: 2px;
     margin: 0;
-    font-size: 58px;
+    font-size: 60px;
     color: #fff;
     text-align: center;
     font-weight: normal;
@@ -52,7 +52,7 @@ header.banner-text p:nth-of-type(2){
     font-size: 20px;
     color: #fff;
     text-align: center;
-    padding: 50px 0 25px 0;
+    padding: 70px 0 25px 0;
 }
 main{
     padding: 0 90px;
@@ -77,7 +77,7 @@ button.banner-btn{-webkit-animation-duration:2s;animation-duration:2s;
 50%{transform:translateY(-5px)}
 }
 @media only screen and (max-width: 321px){
-    header.banner-text h1{font-size: 50px;}
+    header.banner-text h1{font-size: 52px;}
 }
 #btn{border:1px solid;font-weight:600;border-radius:50px;color: #f2711c;box-shadow: 0 0 0 1px #f2711c;background-color: transparent; padding:18px 80px;}footer{margin-top: 50px}
 div.ui.secondary{top: 10px; right: 10px; position: absolute;}.dark{background-color: #000; height: 60px;padding:0 20px; display: flex; justify-content: space-between; align-items: center;}

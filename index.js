@@ -12,7 +12,8 @@ const mongoose= require("mongoose");
 const mongoUtil = require( './models/DB' );
 mongoUtil.connectToServer();
 //mongoose.connect("mongodb://localhost/policify", {useNewUrlParser: true, useUnifiedTopology:true});
-
+if (process.env.NODE_ENV === 'production')
+    useCaching = true;
 app.set("view engine", "ejs");
 mongoose.set('debug', true);
 mongoose.set('useCreateIndex', true);
