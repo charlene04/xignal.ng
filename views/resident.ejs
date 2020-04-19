@@ -1,0 +1,26 @@
+<%- include('partials/header') %>
+<%- include('partials/nav') %>
+<div class="ui attached message">
+    <div class="header">
+      For Residents
+    </div>
+    <p>House number is necessary to ease the job of your security personnel.</p>
+</div>
+<form action="/resident" method="POST"   class="ui attached fluid form segment" id="residentForm" required>
+    <div class="field ">
+        <label>Home address</label>
+        <input placeholder="1, Ifelodun steet, Surulere." type="text" name="address" id="add" onkeyup="value()" required>
+    </div>
+    <div class="field">
+        <label>Access code</label>
+        <input placeholder="Input neighbourhood access code" type="text" name="access_code" id="code">
+        <small id="code" class="form-text text-muted">Contact your locality's administration.</small>
+    </div>
+    <div class="ui blue submit button" onclick="saveInfo()">Register</div>
+    <div class="ui error message"></div>
+</form>
+
+<%- include('partials/footer') %>
+
+
+   

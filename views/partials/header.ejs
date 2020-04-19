@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <link rel="icon" href="/favicon.ico?v=1.1" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/checkbox.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/dropdown.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/transition.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/form.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    
+    <link rel="stylesheet" href="/style.css">
+    <title>Xignal.ng | Safety begins at home</title>
+</head>
+<body class="body">
+<div class="ui fluid " style="margin-top: 35px; padding:0 10px;position: absolute;width:98%">
+    <%if(error && error.length > 0){%>
+     <div class="ui negative message single-row" style="margin-top: 15px; z-index: 1030;" role="alert">
+      <span><%=error%></span>
+      <i class="ui icon close" style="font-size: 18px;"></i>
+    </div>
+    <%}%>
+    <%if(success && success.length > 0){%>
+     <div class="ui success message single-row" style="margin-top: 15px; z-index: 1030;"  role="alert">
+      <span><%=success%></span>
+      <i class="ui icon close" style="font-size: 18px;"></i>
+    </div>
+   <%}%>
+  </div>

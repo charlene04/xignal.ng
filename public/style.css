@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Girassol&family=Play&family=Rajdhani:wght@300;400&display=swap');
+body, html{
+    overflow-x: hidden;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    word-break: break-word;
+    font-family: 'Rajdhani', sans-serif;
+}
+div.banner{
+    background-image: url("https://res.cloudinary.com/charlene04/image/upload/v1587280211/XIGNAL.NG/icon2_mvaoux.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    min-height: 100%;
+}
+div.banner span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #13131342;
+}
+.ui.button{font-family: 'Rajdhani', sans-serif;}
+div.banner section{
+    padding: 18px;
+    text-align: center;
+   
+}span.compulsory{color: #f00;}
+
+header.banner-text h1{
+    letter-spacing: 2px;
+    margin: 0;
+    font-size: 58px;
+    color: #fff;
+    text-align: center;
+    font-weight: normal;
+    font-family: 'Play', cursive;
+}
+header.banner-text p:nth-of-type(1){
+    margin: 0;
+    padding: 10px 0;
+    font-size: 30px;
+    color: #ffffff;
+    text-align: center;
+}
+header.banner-text p:nth-of-type(2){
+    margin: 0;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    padding: 50px 0 25px 0;
+}
+main{
+    padding: 0 90px;
+    min-height: calc(100% - 120px);
+}
+body{background-color: #f3f0f045;}.border{border: 0.3px solid #00000020; padding: 20px 10px; margin-bottom: 50px; box-shadow: 0 2px #00000020;} form{background-color: #fffffff0;}
+
+@media only screen and (max-width:500px){
+    main{padding: 0;}
+}
+
+button.banner-btn{-webkit-animation-duration:2s;animation-duration:2s;
+    -webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-timing-function:linear;
+    animation-timing-function:linear;animation-iteration-count:infinite;
+    -webkit-animation-iteration-count:infinite;-webkit-animation-name:bounce;animation-name:bounce;position:relative}
+@-webkit-keyframes bounce {
+0%,100%{-webkit-transform:translateY(0)}
+50%{-webkit-transform:translateY(-5px)}
+}
+@keyframes bounce {
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-5px)}
+}
+@media only screen and (max-width: 321px){
+    header.banner-text h1{font-size: 50px;}
+}
+#btn{border:1px solid;font-weight:600;border-radius:50px;color: #f2711c;box-shadow: 0 0 0 1px #f2711c;background-color: transparent; padding:18px 80px;}footer{margin-top: 50px}
+div.ui.secondary{top: 10px; right: 10px; position: absolute;}.dark{background-color: #000; height: 60px;padding:0 20px; display: flex; justify-content: space-between; align-items: center;}
+.dark-space{display: flex; justify-content: space-between; align-items: center;background-color: #000; height: 60px; padding: 0 20px;}.dark-space p{margin: 0;}
+.single-row{display: flex; justify-content: space-between; align-items: center;}
+.border-list{border-left:0.3px solid #00000032;border-bottom:0.3px solid #00000032; padding: 10px; margin-bottom: 10px; box-shadow: 0 1.5px #00000040;}
+.dim{font-size: 13px; color: #000000c7;}.display{display: none!important;}

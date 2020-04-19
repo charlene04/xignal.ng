@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+<div class="banner">
+    <span>
+    <div class="ui secondary fluid menu">
+        <a href="" class="ui item left">
+            <img src="logo.png" alt="" style="height: 40px; width: 40px;">
+        </a>
+        <div class="right menu">
+            <div class="item">
+                <%if(currentUser){%>
+                    <a href="/" style="padding-right: 10px;">
+                        <button class="ui yellow basic button">Subscribe</button></a>
+                    <a href="/events">
+                    <button class="ui red basic button">Events</button></a> 
+               <% }else{%>
+                <a href="/resident" style="padding-right: 10px;">
+                    <button class="ui yellow basic button">Resident</button></a>
+                <a href="/register">
+                <button class="ui teal basic button">Official</button></a><%}%>
+            </div>
+        </div>
+    </div>
+    <section>
+        <header class="banner-text">
+            <h1>XIGNAL.NG</h1>
+            <p>Safety begins at home.</p>
+            <p>Click <code>next</code> only if you are in distress or aware of one in your neighbourhood</p>
+            <a href="/signal">
+                <button class="ui button basic orange banner-btn" id="btn">NEXT</button></a> 
+        </header>
+    </div>
+</section>
+</span>
+
+
+</body>
+</html>

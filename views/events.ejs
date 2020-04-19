@@ -1,0 +1,43 @@
+<%- include('partials/header') %>
+<%- include('partials/nav') %>
+<section class="ui">
+   <% if(user.distress.length != 0){%>
+       <% user.distress.slice().reverse().forEach(function(distress){%>
+            <div class="border-list">
+                    <div class="single-row">
+                        <p style="margin: 0;"><strong><%=distress.title%></strong></p>
+                        <i class="ui icon bell" onclick="bell()" style="color: #6f7273"></i>
+                    </div>
+                    <p style="font-size: 11px; letter-spacing: 1px;margin-top: 4px;"><%-distress.description%></p>
+                    <div class="single-row dim">
+                        <span><strong><%=distress.address%></strong></span>
+                        <span><%-distress.created.toLocaleString()%></span>
+                    </div>
+            </div>
+       <% });%>
+    <%}else{%>
+        <div class="ui center aligned">
+            <p><i>No distress call. Glory to God.</i></p>
+        </div>
+   <% }%>
+   <%if(currentUser){%>
+    <div style="margin-top: 40px;">
+    <form action="/<%=currentUser.username%>/add-receiver" class="ui right fluid labelled left icon input display" 
+        method="post" id="receiver" >
+        <i class="icon tags"></i>
+        <input type="tel" name="phone" placeholder="Enter phone number.">
+        <a class="ui submit tag label" style="margin: 0;" onclick="submitForm()">
+            Add receiver
+        </a>
+      </form>
+
+    <div class="ui fluid single-row" style="margin-top: 10px;">
+        <a style="padding-right: 10px;">
+            <button class="ui yellow basic button" onclick="showForm()">Add receiver</button></a>
+        <a href="/logout">
+        <button class="ui red basic button">Logout</button></a> 
+    </div>
+   <%}%>
+</div>
+</section>
+<%- include('partials/footer') %>

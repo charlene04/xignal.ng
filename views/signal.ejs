@@ -1,0 +1,42 @@
+<%- include('partials/header') %>
+<%- include('partials/nav') %>
+<div class="ui attached message">
+    <div class="header">
+      Send a distress signal
+    </div>
+    
+    <p>If distress location is different from yours, please specify in the description box.</p>
+</div>
+<form action="/signal" method="POST" class="ui form attached fluid segment">
+    <input  type="hidden" name="home" id="home">
+    <div class="field">
+        <label>Situation<span class="compulsory">*</span></label>
+        <div class="ui fluid search selection dropdown">
+          <input type="hidden" name="title">
+          <i class="dropdown icon"></i>
+          <div class="default text" >Select vices</div>
+          <div class="menu">
+            <div class="item" data-value="Armed Robbery">Armed Robbery</div>
+            <div class="item"  data-value="Rape">Rape</div>
+            <div class="item" >Drug Addiction</div>
+            <div class="item" >Hooliganism thuggery</div>
+            <div class="item" >Robbery</div>
+            <div class="item" >Vandalism</div>
+            <div class="item" data-value="Special case">Other</div>
+           
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <label>Brief description (Optional)</label>
+      <textarea name="description" id="description"  rows="3"></textarea>
+    </div>
+<div class="ui submit negative button">Send</div>
+</form>
+ 
+
+<%- include('partials/footer') %>
+  
+
+
+  

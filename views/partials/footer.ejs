@@ -1,0 +1,26 @@
+</main>
+<footer>
+    <div class="dark-space">
+        <p><a href="/terms">Terms of Service</a></p>
+        <p style="color: white;">© 2019 Copyright:
+            <a href="https://policifyng.herokuapp.com">policify.ng</a></p>
+    </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/checkbox.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/form.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/transition.min.js"></script>
+<script src="/script.js"></script>
+<script type="application/javascript" src="https://sdki.truepush.com/sdk/v2.0.2/app.js" async></script>
+    <script>
+        var truepush = window.truepush || [];
+        truepush.push(function(){
+            truepush.Init({
+                id: process.env.TRUEPUSH_ID
+                }, function(error){
+                  if(error) console.error(error);
+                })
+            })
+        </script>
+
+</body>
+</html>
