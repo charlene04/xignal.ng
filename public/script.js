@@ -40,6 +40,7 @@ function savedAddress(){
 
 function clear(){
   localStorage.clear();
+  location.reload(true);
 }
 
 function saveInfo(){
