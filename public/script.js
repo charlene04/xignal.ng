@@ -25,8 +25,11 @@ window.document.addEventListener('DOMContentLoaded', savedAddress);
 function savedAddress(){
   let addressStorage;
   if(localStorage.getItem('address') === null){
-    console.log("You have not registered as a resident/officer.")
+    document.getElementById("signal").classList.add("display");
+    document.getElementById("unregistered").classList.remove("display");
   }else{
+    document.getElementById("residents").classList.add("display");
+    document.getElementById("message").classList.remove("display");
     addressStorage = JSON.parse(localStorage.getItem("address"));
     addressStorage.forEach(function(Home) {
       document.getElementById("home").value = Home; 
@@ -34,20 +37,7 @@ function savedAddress(){
 }
 }
 
-function officer(){
-  let addressVal = officerAdd();
-  if(localStorage.getItem('address') === null){
-    address = [];
-    address.push(addressVal);
-    localStorage.setItem("address", JSON.stringify(address));
-  }else{
-    console.log("Your browser already has an address in memory.")
-  }
 
-}
-function officerAdd(){
-  return document.getElementById("officerAddress").value; 
-}
 
 
 function saveInfo(){
@@ -102,12 +92,12 @@ $(document).ready(function(){
                 ]
               },
               
-              city: {
-                identifier: 'city',
+              street: {
+                identifier: 'street',
                 rules: [
                   {
                     type   : 'empty',
-                    prompt : 'Please enter your LGA'
+                    prompt : 'Please enter the name of your neighbourhood'
                   },
                   {
                     type: 'regExp[/^[a-zA-Z ]*$/]',
@@ -115,12 +105,12 @@ $(document).ready(function(){
                 }
                 ]
               },
-              state: {
-                identifier: 'state',
+              title: {
+                identifier: 'title',
                 rules: [
                   {
                     type   : 'empty',
-                    prompt : 'Please choose your state from the dropdown.'
+                    prompt : 'Please choose from the dropdown.'
                   }
                 ]
               },

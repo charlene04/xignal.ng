@@ -14,9 +14,11 @@
     <div class="field">
         <label>Access code</label>
         <input placeholder="Input neighbourhood access code" type="text" name="access_code" id="code">
-        <small id="code" class="form-text text-muted">Contact your locality's administration.</small>
+        <small id="code" class="form-text text-muted">Contact your locality's administration for the correct code. [One attempt]</small>
     </div>
-    <div class="ui blue submit button" onclick="saveInfo()">Register</div>
+    <div class="ui blue submit button" onclick="saveInfo()" id="residents">Register</div>
+    <p class="ui message display" id="message" style="background-color: #ff000017;">This phone/pc has been identified. If there was a change of residence or you used a wrong code,
+         kindly clear your browser's local storage and refresh the page to continue. <a href="/terms">See here</a></p>
     <div class="ui error message"></div>
 </form>
 

@@ -22,28 +22,38 @@ router.post("/register", function(req, res){
 		street: req.body.street,
 		code: req.body.key
 	});
- 
-	User.register(newUser, req.body.password, function(err, user){
-		if(err){
-			req.flash("error", "Something went wrong!");
-			return res.render("signup");
-		}else{
-		var phones = {phone: req.body.phone};
-		User.findOneAndUpdate({code: user.code}, {$push: {phones: phones}}, {new: true},function(err, updatedUser){
-            if(err){
-                req.flash("error", "Something went wrong. Please try again.")
-                res.redirect("/resident");
-            }else{
-				passport.authenticate("local")(req, res, function(){
-                req.flash("success", "Details recorded successfully.")
-                res.redirect("/events");
+ User.find({code: req.body.key}, function(err, foundUser){
+	if(err){
+		req.flash("error", "Something went wrong. Please try again.");
+		res.redirect("/register");
+	}else if(foundUser.length != 0){
+		req.flash("error", "Access code is already taken. Please try something else.");
+		res.redirect("/register");
+	}else{
+		User.register(newUser, req.body.password, function(err, user){
+			if(err){
+				req.flash("error", "Something went wrong!");
+				res.redirect("/register");
+			}else{
+			var phones = {phone: req.body.phone};
+			User.findOneAndUpdate({code: user.code}, {$push: {phones: phones}}, {new: true},function(err, updatedUser){
+				if(err){
+					req.flash("error", "Something went wrong. Please try again.")
+					res.redirect("/resident");
+				}else{
+					passport.authenticate("local")(req, res, function(){
+					req.flash("success", "Details recorded successfully.")
+					res.redirect("/events");
+			});
+				}
+			})
+			
+			
+			}
 		});
-            }
-        })
-		
-		
-		}
-	});
+	}
+ })
+	
 });
 
 module.exports = router;

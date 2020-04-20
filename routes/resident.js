@@ -6,8 +6,8 @@ router.get('/resident', function(req, res){
 })
 
 
-router.post('/:user/add-receiver', function(req, res){
-   User.find({username: req.params.user}, function(err, foundUser){
+router.post('/resident', function(req, res){
+   User.find({code: req.body.access_code}, function(err, foundUser){
        if(err){
         req.flash("error", "Something went wrong. Please try again.")
         res.redirect("/");
