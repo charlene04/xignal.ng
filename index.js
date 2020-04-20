@@ -23,7 +23,7 @@ app.use(session({
     resave: false,
 	saveUninitialized: false,
     cookieName: 'session',
-    secret: 'eg[isfd-8yf9-7GJG335{}+Ihdjhjh',
+    secret: process.env.SECRET,
     duration: 31536000000,
     activeDuration: 31536000000,
     //httpOnly: true,
