@@ -38,7 +38,9 @@ function savedAddress(){
 }
 
 
-
+function clear(){
+  localStorage.clear();
+}
 
 function saveInfo(){
   let addressValue = value();
