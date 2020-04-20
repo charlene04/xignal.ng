@@ -1,5 +1,6 @@
 <%- include('partials/header') %>
 <%- include('partials/nav') %>
+<div onload="resident()">
 <div class="ui attached message">
     <div class="header">
       For Residents
@@ -21,7 +22,26 @@
         <a href="#" id="clear">click here</a> to try again.</p>
     <div class="ui error message"></div>
 </form>
+</div>
+<script>
+    window.document.addEventListener('DOMContentLoaded', savedAddress);
 
+function savedAddress(){
+  let addressStorage;
+  if(localStorage.getItem('address') === null){
+  }else{
+    document.getElementById("residents").classList.add("display");
+    document.getElementById("message").classList.remove("display");
+    addressStorage = JSON.parse(localStorage.getItem("address"));
+    
+}
+}
+
+document.getElementById('clear').addEventListener('click', function(){
+  localStorage.clear();
+  location.reload();
+} )
+</script>
 <%- include('partials/footer') %>
 
 

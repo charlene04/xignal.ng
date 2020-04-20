@@ -1,5 +1,6 @@
 <%- include('partials/header') %>
 <%- include('partials/nav') %>
+<div onload="signal()">
 <div class="ui attached message">
     <div class="header">
       Send a distress signal
@@ -36,7 +37,24 @@
   Sorry, please <a href="/resident">register as a resident</a> to use this service.</p>
 </form>
  
+</div>
+<script>
+  window.document.addEventListener('DOMContentLoaded', retrieveAddress);
 
+function retrieveAddress(){
+  let addressStorage;
+  if(localStorage.getItem('address') === null){
+    document.getElementById("signal").classList.add("display");
+    document.getElementById("unregistered").classList.remove("display");
+  }else{
+    addressStorage = JSON.parse(localStorage.getItem("address"));
+    addressStorage.forEach(function(Home) {
+      document.getElementById("home").value = Home; 
+});
+}
+}
+
+</script>
 <%- include('partials/footer') %>
   
 

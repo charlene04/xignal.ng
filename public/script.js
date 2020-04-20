@@ -20,27 +20,7 @@ function submitForm(){
   $(this).closest('input').value ='';
 }
 //===================================================================================
-window.document.addEventListener('DOMContentLoaded', savedAddress);
 
-function savedAddress(){
-  let addressStorage;
-  if(localStorage.getItem('address') === null){
-    document.getElementById("signal").classList.add("display");
-    document.getElementById("unregistered").classList.remove("display");
-  }else{
-    document.getElementById("residents").classList.add("display");
-    document.getElementById("message").classList.remove("display");
-    addressStorage = JSON.parse(localStorage.getItem("address"));
-    addressStorage.forEach(function(Home) {
-      document.getElementById("home").value = Home; 
-});
-}
-}
-
-document.getElementById('clear').addEventListener('click', function(){
-  localStorage.clear();
-  location.reload();
-} )
 
 
 function saveInfo(){

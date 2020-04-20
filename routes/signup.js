@@ -30,6 +30,14 @@ router.post("/register", function(req, res){
 		req.flash("error", "Access code is already taken. Please try something else.");
 		res.redirect("/register");
 	}else{
+		User.find({code: req.body.email}, function(err, foundUser){
+			if(err){
+				req.flash("error", "Something went wrong. Please try again.");
+				res.redirect("/register");
+			}else if(foundUser.length != 0){
+				req.flash("error", "Email already exists!");
+				res.redirect("/register");
+			}else{
 		User.register(newUser, req.body.password, function(err, user){
 			if(err){
 				req.flash("error", "Something went wrong!");
@@ -50,7 +58,7 @@ router.post("/register", function(req, res){
 			
 			
 			}
-		});
+		});}})
 	}
  })
 	

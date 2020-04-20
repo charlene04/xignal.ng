@@ -16,10 +16,10 @@ router.post('/signal', function(req, res){
        console.log(user);
        if(err){
            req.flash("error", "Something went wrong. Please try again.");
-           res.redirect("/events");
+           res.redirect("/signal");
        }else if(user.length == 0){
-            req.flash("error", "Your residence is not registered.")
-            res.redirect("/resident");
+            req.flash("error", `Your residence is not registered. Please register your residence correctly to use this service.`)
+            res.redirect("/signal");
        }else{
            var distress = {title: req.body.title, description: req.body.description, address: req.body.home};
            User.findOneAndUpdate({code: user.slice()[0].code}, {$push:{distress: distress}},{new: true}, function(err, distressUpdate){
