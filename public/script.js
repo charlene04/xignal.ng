@@ -37,11 +37,11 @@ function savedAddress(){
 }
 }
 
-
-function clear(){
+document.getElementById('clear').addEventListener('click', function(){
   localStorage.clear();
-  location.reload(true);
-}
+  location.reload();
+} )
+
 
 function saveInfo(){
   let addressValue = value();
