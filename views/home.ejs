@@ -1,22 +1,23 @@
 <%- include('partials/header') %>
 <div class="banner">
     <span>
-    <div class="ui secondary fluid menu">
-        <a href="" class="ui item left">
-            <img src="https://res.cloudinary.com/charlene04/image/upload/v1587280202/XIGNAL.NG/logo_l3c35m.png" alt="" style="height: 40px; width: 40px;">
-        </a>
-        <div class="right menu">
-            <div class="item">
-                <%if(currentUser){%>
+        <div class="ui secondary fluid menu">
+            <a href="" class="ui item left">
+                <img src="https://res.cloudinary.com/charlene04/image/upload/v1587280202/XIGNAL.NG/logo_l3c35m.png"
+                    alt="" style="height: 40px; width: 40px;">
+            </a>
+            <div class="right menu">
+                <div class="item">
+                    <%if(currentUser){%>
                     <a href="/" style="padding-right: 10px;">
                         <button class="ui yellow basic button">Subscribe</button></a>
                     <a href="/events">
-                    <button class="ui red basic button">Events</button></a> 
-               <% }else{%>
-                <a href="/resident" style="padding-right: 10px;">
-                    <button class="ui yellow basic button">Resident</button></a>
-                <a href="/register">
-                <button class="ui teal basic button">Official</button></a><%}%>
+                        <button class="ui red basic button">Events</button></a>
+                    <% }else{%>
+                    <a href="/resident" style="padding-right: 10px;">
+                        <button class="ui yellow basic button">Resident</button></a>
+                    <a href="/register">
+                        <button class="ui teal basic button">Official</button></a><%}%>
             </div>
         </div>
     </div>

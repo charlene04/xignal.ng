@@ -1,0 +1,21 @@
+<%- include('partials/header') %>
+<%- include('partials/nav') %>
+<div class="ui attached message">
+    <div class="header">
+        Admin Panel
+    </div>
+</div>
+<form action="/login" method="POST" class="ui attached fluid form segment">
+    <div class="field ">
+        <label>User's code</label>
+        <input placeholder="uiyvnd5jjkd" type="text" name="code" required>
+    </div>
+    <div class="field">
+        <label>Password</label>
+        <input placeholder="Your Password" type="password" name="password" required>
+    </div>
+    <div class="ui blue submit button">Subscribe</div>
+    <div class="ui error message"></div>
+</form>
+
+<%- include('partials/footer') %>

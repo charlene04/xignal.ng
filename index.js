@@ -6,12 +6,12 @@ var app = express(),
     favicon = require("serve-favicon"),
     flash = require("connect-flash"),
     session = require('express-session');
-    require("./routes/prod")(app);
-    require("dotenv").config();
-const mongoose= require("mongoose");
-const mongoUtil = require( './models/DB' );
+require("./routes/prod")(app);
+require("dotenv").config();
+const mongoose = require("mongoose");
+const mongoUtil = require('./models/DB');
 mongoUtil.connectToServer();
-//mongoose.connect("mongodb://localhost/policify", {useNewUrlParser: true, useUnifiedTopology:true});
+//mongoose.connect("mongodb://localhost/policify", { useNewUrlParser: true, useUnifiedTopology: true });
 if (process.env.NODE_ENV === 'production')
     useCaching = true;
 app.set("view engine", "ejs");
@@ -21,7 +21,7 @@ mongoose.set('useUnifiedTopology', true);
 mongoose.set('useFindAndModify', false);
 app.use(session({
     resave: false,
-	saveUninitialized: false,
+    saveUninitialized: false,
     cookieName: 'session',
     secret: "eg[isfd-8yf9-7GJG335{}+Ihdjhjh",
     duration: 31536000000,
@@ -33,16 +33,16 @@ app.use(session({
 app.use(flash());
 app.set("view engine", "ejs");
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static(path.join(__dirname,"public")));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(favicon(__dirname +'/public/favicon.ico'));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 
-app.use(function(req, res, next){
-    if(req.session && req.session.user){
-        User.find({username: req.session.user.username}, function(err, user){
-            if(user){
+app.use(function (req, res, next) {
+    if (req.session && req.session.user) {
+        User.find({ username: req.session.user.username }, function (err, user) {
+            if (user) {
                 req.user = user;
                 delete req.user.password;
                 req.session.user = user;
@@ -50,18 +50,19 @@ app.use(function(req, res, next){
             }
             next();
         });
-    }else{
+    } else {
         next();
     }
 })
-app.use(function(req, res, next){
-	res.locals.currentUser = req.user;
-	res.locals.error = req.flash("error");
-	res.locals.success = req.flash("success");
-	next();
+app.use(function (req, res, next) {
+    res.locals.currentUser = req.user;
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
+    next();
 });
 var indexRoutes = require("./routes/home"),
     registerRoutes = require("./routes/signup"),
+    adminRoutes = require("./routes/admin"),
     receiverRoutes = require("./routes/receiver"),
     eventsRoutes = require("./routes/events"),
     loginRoutes = require("./routes/login"),
@@ -69,14 +70,15 @@ var indexRoutes = require("./routes/home"),
     signalRoutes = require("./routes/signal");
 
 app.use('/', eventsRoutes);
-app.use('/',  indexRoutes);
-app.use('/',  receiverRoutes);
-app.use('/',  residentRoutes);
-app.use('/',  loginRoutes);
-app.use('/',  registerRoutes);
-app.use('/',  signalRoutes);
+app.use('/', adminRoutes);
+app.use('/', indexRoutes);
+app.use('/', receiverRoutes);
+app.use('/', residentRoutes);
+app.use('/', loginRoutes);
+app.use('/', registerRoutes);
+app.use('/', signalRoutes);
 
 
-app.listen(process.env.PORT || "3000", function(){
-	console.log("The server has started on port"+ process.env.PORT);
+app.listen(process.env.PORT || "3000", function () {
+    console.log("The server has started on port" + process.env.PORT);
 });

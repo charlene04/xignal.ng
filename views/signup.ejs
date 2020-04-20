@@ -1,61 +1,58 @@
 <%- include('partials/header') %>
 <%- include('partials/nav') %>
 <div class="ui attached message">
-    <div class="header">
-      Officer Registration
-    </div>
-    <p>Thank you for choosing to secure lives and properties.</p>
+  <div class="header">
+    Officer Registration
   </div>
-    <form action="/register" method="POST"  class="ui attached fluid form segment">
-        <div class="two fields">
-          <div class="field ">
-            <label>Username<span class="compulsory">*</span></label>
-            <input placeholder="John Doe" type="text" name="username">
-          </div>
-            <div class="field">
-                <label>Email<span class="compulsory">*</span></label>
-                <input placeholder="john@gmail.com" type="text" name="email">
-            </div>
-        </div>
-        <div class="two fields">
-            <div class="field">
-                <label>Phone number<span class="compulsory">*</span></label>
-                <input placeholder="John Doe" type="text" name="phone" id="phone">
-                <small id="phone" class="form-text text-muted">The one at the security post preferably.</small>
-              </div>
-            <div class="field">
-                <label>Street/Estate name<span class="compulsory">*</span></label>
-                <input placeholder="Abayomi street, Surulere." type="text" name="street" id="officerAddress">
-            </div>
-        </div>
-       
-    <div class="two fields">
-        <div class="field">
-            <label>Password<span class="compulsory">*</span></label>
-           <input placeholder="Your Password" type="password" name="password" id="pword">
-           <small id="pword" class="form-text">Please use a password you can easily remember.</small>
-       </div>
-       <div class="field">
-        <label>Access key<span class="compulsory">*</span></label>
-        <input placeholder="Access key" type="text" name="key">
-      </div>
+  <p>Thank you for choosing to secure lives and properties.</p>
+</div>
+<form action="/register" method="POST" class="ui attached fluid form segment">
+  <div class="two fields">
+    <div class="field ">
+      <label>Username<span class="compulsory">*</span></label>
+      <input placeholder="John Doe" type="text" name="username">
     </div>
-        <div class="inline field">
-          <div class="ui checkbox">
-            <input type="checkbox" tabindex="0" class="hidden" name="terms">
-            <label>I agree to the Terms and Conditions<span class="compulsory">*</span></label>
-          </div>
-        </div>
-        <div class="ui blue submit button">REGISTER</div>
-        
-        <div class="ui error message"></div>
-    </form>
-    <div class="ui bottom attached warning message">
-        <i class="icon help"></i>
-        Already signed up? <a href="/login">Login here</a> instead.
+    <div class="field">
+      <label>Email<span class="compulsory">*</span></label>
+      <input placeholder="john@gmail.com" type="text" name="email">
     </div>
+  </div>
+  <div class="two fields">
+    <div class="field">
+      <label>Phone number<span class="compulsory">*</span></label>
+      <input placeholder="John Doe" type="text" name="phone" id="phone">
+      <small id="phone" class="form-text text-muted">The one at the security post preferably.</small>
+    </div>
+    <div class="field">
+      <label>Street/Estate name<span class="compulsory">*</span></label>
+      <input placeholder="Abayomi street, Surulere." type="text" name="street" id="officerAddress">
+    </div>
+  </div>
+
+
+  <div class="field">
+    <label>Password<span class="compulsory">*</span></label>
+    <input placeholder="Your Password" type="password" name="password" id="pword">
+    <small id="pword" class="form-text">Please use a password you can easily remember.</small>
+  </div>
+
+
+  <div class="inline field">
+    <div class="ui checkbox">
+      <input type="checkbox" tabindex="0" class="hidden" name="terms">
+      <label>I agree to the Terms and Conditions<span class="compulsory">*</span></label>
+    </div>
+  </div>
+  <div class="ui blue submit button">REGISTER</div>
+
+  <div class="ui error message"></div>
+</form>
+<div class="ui bottom attached warning message">
+  <i class="icon help"></i>
+  Already signed up? <a href="/login">Login here</a> instead.
+</div>
 
 
 
 
-      <%- include('partials/footer') %>
+<%- include('partials/footer') %>

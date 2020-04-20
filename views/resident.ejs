@@ -1,48 +1,48 @@
 <%- include('partials/header') %>
 <%- include('partials/nav') %>
 <div onload="resident()">
-<div class="ui attached message">
-    <div class="header">
-      For Residents
+    <div class="ui attached message">
+        <div class="header">
+            For Residents
+        </div>
+        <p>House number is necessary to ease the job of your security personnel.</p>
     </div>
-    <p>House number is necessary to ease the job of your security personnel.</p>
-</div>
-<form action="/resident" method="POST"   class="ui attached fluid form segment" id="residentForm" required>
-    <div class="field ">
-        <label>Home address</label>
-        <input placeholder="1, Ifelodun steet, Surulere." type="text" name="address" id="add" onkeyup="value()" required>
-    </div>
-    <div class="field">
-        <label>Access code</label>
-        <input placeholder="Input neighbourhood access code" type="text" name="access_code" id="code">
-        <small id="code" class="form-text text-muted">Contact your locality's administration for the correct code. [One attempt]</small>
-    </div>
-    <div class="ui blue submit button" onclick="saveInfo()" id="residents">Register</div>
-    <p class="ui message display" id="message" style="background-color: #ff000017;">This phone/pc has been identified. If there was a change of residence or you used a wrong code/address, 
-        <a href="#" id="clear">click here</a> to try again.</p>
-    <div class="ui error message"></div>
-</form>
+    <form action="/resident" method="POST" class="ui attached fluid form segment" id="residentForm" required>
+        <div class="field ">
+            <label>Home address</label>
+            <input placeholder="1, Ifelodun steet, Surulere." type="text" name="address" id="add" onkeyup="value()"
+                required>
+        </div>
+        <div class="field">
+            <label>Access code</label>
+            <input placeholder="Input neighbourhood access code" type="text" name="access_code" id="code">
+            <small id="code" class="form-text text-muted">Contact your locality's administration for the correct code.
+                [One attempt]</small>
+        </div>
+        <div class="ui blue submit button" onclick="saveInfo()" id="residents">Register</div>
+        <p class="ui message display" id="message" style="background-color: #ff000017;">This phone/pc has been
+            identified. If there was a change of residence or you used a wrong code/address,
+            <a href="#" id="clear">click here</a> to try again.</p>
+        <div class="ui error message"></div>
+    </form>
 </div>
 <script>
     window.document.addEventListener('DOMContentLoaded', savedAddress);
 
-function savedAddress(){
-  let addressStorage;
-  if(localStorage.getItem('address') === null){
-  }else{
-    document.getElementById("residents").classList.add("display");
-    document.getElementById("message").classList.remove("display");
-    addressStorage = JSON.parse(localStorage.getItem("address"));
-    
-}
-}
+    function savedAddress() {
+        let addressStorage;
+        if (localStorage.getItem('address') === null) {
+        } else {
+            document.getElementById("residents").classList.add("display");
+            document.getElementById("message").classList.remove("display");
+            addressStorage = JSON.parse(localStorage.getItem("address"));
 
-document.getElementById('clear').addEventListener('click', function(){
-  localStorage.clear();
-  location.reload();
-} )
+        }
+    }
+
+    document.getElementById('clear').addEventListener('click', function () {
+        localStorage.clear();
+        location.reload();
+    })
 </script>
 <%- include('partials/footer') %>
-
-
-   
