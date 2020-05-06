@@ -39,7 +39,7 @@ router.post("/register", function (req, res) {
 		} else {
 			User.register(newUser, req.body.password, function (err, user) {
 				if (err) {
-					req.flash("error", "Something went wrong!");
+					req.flash("error", "Username already exists.");
 					res.redirect("/register");
 				} else {
 					var phones = { phone: req.body.phone };
@@ -54,16 +54,26 @@ router.post("/register", function (req, res) {
 								let code1 = access_key;
 								schedule.scheduleJob(endSub, function () {
 									User.findOneAndUpdate({ code: code1 }, { authorised: false }, function (err, foundUser) {
-										console.log("done");
+										const msg = {
+											to: user.email,
+											from: 'developmenthub123@gmail.com',
+											subject: 'Your subscription has expired.',
+											html: '<p><strong>Hello there!</strong></p><p>Trust you are keeping safe. Please <a href="">login</a> to your account and renew your subscription to continue using this service</p><p><i>Warm Regards!</i></p>'
+										};
+										sgMail.send(msg).then(() => {
+											console.log("Subscription expired.")
+										}).catch(error => {
+											console.log("Subscription expired.") 
+										})
 									})
 								});
 								//
 								const msg = {
 									to: user.email,
-									from: 'charlesugbana04@gmail.com',
-									subject: 'Hello! We\'ve got a situation.',
-									text: 'and easy to do anywhere, even with Node.js',
-									html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+									from: 'developmenthub123@gmail.com',
+									subject: 'Hello! Welcome to xignal.NG',
+									html: '<p>Safety begins at home, and we are glad to have you on board.</p><p>Here is your unique access code: <strong>'+user.code+'</strong></p><p><i>Please keep this code safe for reference purposes only</i></p><p>Stay Safe!</p>'
+								
 								};
 								sgMail.send(msg).then(() => {
 									req.flash("success", "Your unique access code has been sent to the mail.")

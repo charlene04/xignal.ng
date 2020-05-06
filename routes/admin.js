@@ -1,15 +1,14 @@
 const router = require("express").Router();
-const isLoggedIn = require("../middleware/isLoggedIn");
 const User = require("../models/Users");
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.EMAIL_KEY);
 
 
-router.get("/admin", function (req, res) {
+router.get("/admin",  function (req, res) {
     res.render("admin");
 })
 
-router.post('/admin', function (req, res) {
+router.post('/admin',  function (req, res) {
     if (req.body.password === process.env.ADMIN_KEY) {
         User.findOneAndUpdate({ username: req.body.code }, { authorised: true }, function (err, foundUser) {
             if (err) {
@@ -21,14 +20,23 @@ router.post('/admin', function (req, res) {
                 let code1 = req.body.code;
                 schedule.scheduleJob(endSub, function () {
                     User.findOneAndUpdate({ code: code1 }, { authorised: false }, function (err, foundUser) {
-                        console.log("done");
+                        const msg = {
+                            to: foundUser.slice()[0].email,
+                            from: 'developmenthub123@gmail.com',
+                            subject: 'Your subscription has expired.',
+                            html: '<p><strong>Hello there!</strong></p><p>Trust you are keeping safe. Please renew your subscription to continue using this service</p><p><i>Warm Regards!</i></p>'
+                        };
+                        sgMail.send(msg).then(() => {
+                            console.log("Subscription expired.")
+                        }).catch(error => {
+                            console.log("Subscription expired.") 
+                        })
                     })
                     const msg = {
                         to: foundUser.slice()[0].email,
-                        from: 'charlesugbana04@gmail.com',
-                        subject: 'Hello! Your subscription has been renewed.',
-                        text: 'and easy to do anywhere, even with Node.js',
-                        html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+                        from: 'developmenthub123@gmail.com',
+                        subject: 'Your subscription has been renewed.',
+                        html: '<p>Thank you for using our services. We hope you are keeping safe and watching out for the safety of your environment.</p><p><i>Warm Regards!</i></p>'
                     };
                     sgMail.send(msg).then(() => {
                         req.flash("success", "Email has been sent to the user.")

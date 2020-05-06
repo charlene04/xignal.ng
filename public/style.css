@@ -16,6 +16,9 @@ div.banner{
     
     min-height: 100%;
 }
+div#sideView{left: 0;
+    position: absolute;
+    writing-mode: vertical-rl; bottom: 40px; background-color: #fff; color: #000;padding-top: 10px;padding-bottom: 10px;} div#sideView a{color: #000!important; font-weight: bold;}
 div.banner span{
     display: flex;
     justify-content: center;

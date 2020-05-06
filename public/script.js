@@ -49,10 +49,6 @@ $(document).ready(function () {
           {
             type: 'empty',
             prompt: 'Please enter your full name'
-          },
-          {
-            type: 'regExp[/^[a-zA-Z ]*$/]',
-            prompt: 'Your full name cannot contain special characters or numbers'
           }
         ]
       },

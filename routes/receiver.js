@@ -1,10 +1,10 @@
 const router = require("express").Router();
 const User = require("../models/Users");
-const isLoggedIn = require("../middleware/isLoggedIn");
+const isAdmin = require("../middleware/isAdmin");
 
 
 
-router.post('/:user/add-receiver', isLoggedIn, function (req, res) {
+router.post('/:user/add-receiver', isAdmin, function (req, res) {
     User.find({ username: req.params.user }, function (err, foundUser) {
         if (err) {
             req.flash("error", "Something went wrong. Please try again.")
