@@ -5,6 +5,7 @@ body, html{
     width: 100%;
     margin: 0;
     padding: 0;
+    font-size: 15px!important;
     word-break: break-word;
     font-family: 'Rajdhani', sans-serif;
 }
@@ -18,7 +19,7 @@ div.banner{
 }
 div#sideView{left: 0;
     position: absolute;
-    writing-mode: vertical-rl; bottom: 40px; background-color: #fff; color: #000;padding: 11px 0 11px 0;} div#sideView a{color: #000!important; font-weight: bold;}
+    writing-mode: vertical-rl; bottom: 40px; background-color: #fff; color: #000;padding: 11px 0 11px 0;} div#sideView a{font-size: 16px; color: #000!important; font-weight: bold;}
 div.banner span{
     display: flex;
     justify-content: center;
