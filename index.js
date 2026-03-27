@@ -9,8 +9,8 @@ var app = express(),
 require("./routes/prod")(app);
 require("dotenv").config();
 const mongoose = require("mongoose");
-const mongoUtil = require('./models/DB');
-mongoUtil.connectToServer();
+//const mongoUtil = require('./models/DB');
+//mongoUtil.connectToServer();
 //mongoose.connect("mongodb://localhost/policify", { useNewUrlParser: true, useUnifiedTopology: true });
 if (process.env.NODE_ENV === 'production')
     useCaching = true;
@@ -79,6 +79,6 @@ app.use('/', registerRoutes);
 app.use('/', signalRoutes);
 
 
-app.listen(process.env.PORT || "3000", function () {
-    console.log("The server has started on port" + process.env.PORT);
+app.listen("3000", function () {
+    console.log("The server has started on port");
 });
