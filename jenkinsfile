@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    environment {
+        DB_URL="SOme value"
+    }
+
+    stages {
+        stage('BUild') {
+            steps {
+                sh `echo "HELLO WORLD, WE ARE DOING IT!!!!"`
+            }
+        }
+    }
+
+}
